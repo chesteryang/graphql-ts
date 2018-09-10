@@ -5,14 +5,18 @@
    "private": true,
    "keywords": [],
    "author": "Chester Yang",
-   "license": "ISC",
+   "license": "MIT",
    "devDependencies": {
       "@types/bcryptjs": "^2.4.1",
+      "@types/jest": "^23.3.2",
       "@types/node": "^10.9.4",
       "@types/uuid": "^3.4.4",
       "gql2ts": "^1.9.0",
+      "graphql-request": "^1.8.2",
+      "jest": "^23.6.0",
       "nodemon": "^1.18.4",
       "prettier": "^1.14.2",
+      "ts-jest": "^23.1.4",
       "ts-node": "7.0.1",
       "tslint-config-prettier": "^1.15.0",
       "typescript": "3.0.3"
@@ -28,6 +32,21 @@
    },
    "scripts": {
       "start": "nodemon --exec ts-node src/index.ts",
-      "gen-schema-types": "gql2ts src/schema.graphql -o src/types/schema.d.ts"
+      "gen-schema-types": "gql2ts src/schema.graphql -o src/types/schema.d.ts",
+      "test": "jest"
+   },
+   "jest": {
+      "transform": {
+         "^.+\\.tsx?$": "ts-jest"
+      },
+      "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+      "moduleFileExtensions": [
+         "ts",
+         "tsx",
+         "js",
+         "jsx",
+         "json",
+         "node"
+      ]
    }
 }
