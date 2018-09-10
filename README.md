@@ -14,3 +14,5 @@ Steps to run this project:
 # Install graphql yoga
 1. add grahpql server
 2. add nodemon
+3. add graphql import
+4. add gql2ts. change declare to export in generated type file.
