@@ -2,14 +2,19 @@ import { AddressInfo } from "net";
 import { request } from "graphql-request";
 import { User } from "../entity/User";
 import { startServer } from "../startServer";
+import { Server } from "http";
 
 let getHost = () => "";
-
+let app: Server;
 beforeAll(async () => {
-  const app = await startServer();
+  app = await startServer() as Server;
   const { port } = app.address() as AddressInfo;
   getHost = () => `http://127.0.0.1:${port}`;
 });
+
+afterAll(async () => {
+  await app.close();
+})
 
 const email = "test@gmail.com";
 const password = "ajfdladfj";
