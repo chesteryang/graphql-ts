@@ -1,19 +1,33 @@
-import { createConnection } from "typeorm";
+import { AddressInfo } from "net";
+import { request } from "graphql-request";
 import { User } from "../entity/User";
-function sum(a:number, b:number) {
-    return a + b;
-}
+import { startServer } from "../startServer";
 
-test('adds 1 + 2 to equal 3', () => {
-    expect(sum(1, 2)).toBe(3);
+let getHost = () => "";
+
+beforeAll(async () => {
+  const app = await startServer();
+  const { port } = app.address() as AddressInfo;
+  getHost = () => `http://127.0.0.1:${port}`;
 });
 
-test('in memory database', async () => {
-    const email = "test@gmail.com";
-    await createConnection({type: "sqlite", database: ":memory:", entities: [User], logging: true, synchronize: true})
-    const user = User.create({email, password: "asdfgh"});
-    await user.save();
-    const savedUser = await User.find({ where: { email } });
-    expect(savedUser).toHaveLength(1);
-    expect(savedUser[0].email).toEqual(email);
+const email = "test@gmail.com";
+const password = "ajfdladfj";
+
+const mutation = `
+mutation {
+  register(email: "${email}", password: "${password}")
+}
+`;
+
+describe("Register user", () => {
+  test("Should be able to register user", async () => {
+    const response = await request(getHost(), mutation);
+    expect(response).toEqual({ register: true });
+    const users = await User.find({ where: { email } });
+    expect(users).toHaveLength(1);
+    const user = users[0];
+    expect(user.email).toEqual(email);
+    expect(user.password).not.toEqual(password);
+  });
 })
