@@ -2,7 +2,7 @@
     {
         "name": "development",
         "type": "sqlite",
-        "database": "db/chinook.db",
+        "database": "db/dev.db",
         "synchronize": true,
         "logging": false,
         "entities": [
