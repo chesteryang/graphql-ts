@@ -21,6 +21,27 @@
         }
     },
     {
+        "name": "chinook",
+        "type": "sqlite",
+        "database": "db/chinook.db",
+        "synchronize": false,
+        "logging": true,
+        "entities": [
+            "src/chinookEntities/**/*.ts"
+        ],
+        "migrations": [
+            "src/migration/chinookEntities/**/*.ts"
+        ],
+        "subscribers": [
+            "src/subscriber/chinookEntities/**/*.ts"
+        ],
+        "cli": {
+            "entitiesDir": "src/chinookEntities",
+            "migrationsDir": "src/migration/chinookEntities",
+            "subscribersDir": "src/subscriber/chinookEntities"
+        }
+    },
+    {
         "name": "test",
         "type": "sqlite",
         "database": ":memory:",
