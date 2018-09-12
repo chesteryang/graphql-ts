@@ -3,7 +3,7 @@ import { User } from "../entity/User";
 
 test('in memory database', async () => {
     const email = "test@gmail.com";
-    await createConnection({type: "sqlite", database: ":memory:", entities: [User], logging: true, synchronize: true})
+    await createConnection({type: "sqlite", database: ":memory:", entities: [User], logging: false, synchronize: true})
     const user = User.create({email, password: "asdfgh"});
     await user.save();
     const savedUser = await User.find({ where: { email } });

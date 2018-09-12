@@ -4,7 +4,7 @@
         "type": "sqlite",
         "database": "db/chinook.db",
         "synchronize": true,
-        "logging": true,
+        "logging": false,
         "entities": [
             "src/entity/**/*.ts"
         ],
@@ -25,7 +25,7 @@
         "type": "sqlite",
         "database": "db/chinook.db",
         "synchronize": false,
-        "logging": true,
+        "logging": false,
         "entities": [
             "src/chinookEntities/**/*.ts"
         ],
