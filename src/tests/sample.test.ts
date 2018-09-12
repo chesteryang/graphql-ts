@@ -7,7 +7,7 @@ const options: ConnectionOptions = {
     type: "sqlite", 
     database: ":memory:", 
     entities: [User, Customer, Employee], 
-    logging: true, 
+    logging: false, 
     synchronize: true
 }
 test('in memory database', async () => {
