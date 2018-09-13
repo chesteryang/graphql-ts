@@ -1,4 +1,4 @@
-import { Connection, createConnection } from "typeorm";
+import { Connection, createConnection, ObjectType } from "typeorm";
 import { Album } from "./Album";
 import { Artist } from "./Artist";
 import { Customer } from "./Customer";
@@ -15,7 +15,7 @@ export class ChinookContext {
     static Instance: ChinookContext = new ChinookContext();
     private static connection: Connection;
 
-    async Repository<T>(t: {new(): T}) {
+    async Repository<T>(t: ObjectType<T>) {
         if(!ChinookContext.connection){
             ChinookContext.connection = await createConnection("chinook");
         }
