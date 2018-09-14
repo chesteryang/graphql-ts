@@ -29,7 +29,7 @@ mutation {
 `;
 
 describe("Register user", () => {
-  test("Should be able to register user", async () => {
+  it("Should be able to register user", async () => {
     const response = await request(getHost(), mutation);
     expect(response).toEqual({ register: null });
     const users = await User.find({ where: { email } });

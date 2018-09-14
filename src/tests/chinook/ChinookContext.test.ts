@@ -5,23 +5,25 @@ import { Customer } from "../../chinookEntities/Customer";
 
 const context = ChinookContext.Instance;
 
-test("can get album list", async () => {
-    const repo = await context.Albums();
-    const list: Album[] = await repo.find({});
-    expect(list).not.toBeNull();
-    expect(list.length).toBeGreaterThan(0);
-})
+describe("ChinookContext", async() => {
+    it("can get album list", async () => {
+        const repo = await context.Albums();
+        const list: Album[] = await repo.find({});
+        expect(list).not.toBeNull();
+        expect(list.length).toBeGreaterThan(0);
+    })
 
-test("can get artist list", async () => {
-    const repo = await context.Artists();
-    const list: Artist[] = await repo.find({});
-    expect(list).not.toBeNull();
-    expect(list.length).toBeGreaterThan(0);
-})
+    it("can get artist list", async () => {
+        const repo = await context.Artists();
+        const list: Artist[] = await repo.find({});
+        expect(list).not.toBeNull();
+        expect(list.length).toBeGreaterThan(0);
+    })
 
-test("can get customer list", async () => {
-    const repo = await context.Customers();
-    const list: Customer[] = await repo.find({});
-    expect(list).not.toBeNull();
-    expect(list.length).toBeGreaterThan(0);
+    it("can get customer list", async () => {
+        const repo = await context.Customers();
+        const list: Customer[] = await repo.find({});
+        expect(list).not.toBeNull();
+        expect(list.length).toBeGreaterThan(0);
+    })
 })
