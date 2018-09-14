@@ -34,12 +34,14 @@
    "scripts": {
       "start": "SET NODE_ENV=development&nodemon --exec ts-node src/index.ts",
       "gen-schema-types": "gql2ts src/schema.graphql -o src/types/schema.d.ts",
-      "test": "SET NODE_ENV=test&jest --verbose"
+      "test": "SET NODE_ENV=test&jest --detectOpenHandles --forceExit"
    },
    "jest": {
+      "globalSetup": "./src/tests/setup_hook.js",
       "transform": {
          "^.+\\.tsx?$": "ts-jest"
       },
+      "verbose": true,
       "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
       "moduleFileExtensions": [
          "ts",

@@ -44,8 +44,9 @@
     {
         "name": "test",
         "type": "sqlite",
-        "database": ":memory:",
+        "database": "db/test.db",
         "synchronize": true,
+        "dropSchema": true,
         "logging": false,
         "entities": [
             "src/entity/**/*.ts"

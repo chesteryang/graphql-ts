@@ -31,13 +31,15 @@
             "args": [
               "--inspect-brk",
               "${workspaceRoot}/node_modules/.bin/jest",
-              "--runInBand"
+              "--runInBand" 
             ],
             "windows": {
               "args": [
                 "--inspect-brk",
                 "${workspaceRoot}/node_modules/jest/bin/jest.js",
-                "--runInBand"       
+                "--runInBand",
+                "--detectOpenHandles",
+                "--forceExit"     
               ],
             },
             "console": "integratedTerminal",
