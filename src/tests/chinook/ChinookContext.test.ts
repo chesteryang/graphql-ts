@@ -2,7 +2,7 @@ import { ChinookContext } from "../../chinookEntities/ChinookContext";
 import { Album } from "../../chinookEntities/Album";
 import { Artist } from "../../chinookEntities/Artist";
 import { Customer } from "../../chinookEntities/Customer";
-
+// entity test file cannot be in entity folder due to ormconfig.json
 const context = ChinookContext.Instance;
 
 describe("ChinookContext", () => {
