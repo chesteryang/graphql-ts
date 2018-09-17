@@ -11,4 +11,12 @@ describe("using entity manager", () => {
         const list: Employee[] = await manager.find(Employee);
         expectList(list);
     })
+
+    it("can query general manager", async () => {
+        const conn = await context.getChinookConnection();
+        const manager = conn.manager;
+        const list: Employee[] = await manager.find(Employee, {where: {ReportsTo: null}});
+        expectList(list);
+        expect(list[0].Title).toEqual("General Manager");
+    })
 })
