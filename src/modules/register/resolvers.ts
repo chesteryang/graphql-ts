@@ -1,15 +1,15 @@
 import * as bcrypt from "bcryptjs"
 import * as yup from "yup";
-import { ResolverMap } from "./types/graphql-utils"
-import { GQL } from "./types/schema"
-import { User } from "./entity/User"
-import { formatYupError } from "./utils/formatYupError";
+import { ResolverMap } from "../../types/graphql-utils"
+import { GQL } from "../../types/schema"
+import { User } from "../../entity/User"
+import { formatYupError } from "../../utils/formatYupError";
 import {
   emailNotLongEnough,
   invalidEmail,
   passwordNotLongEnough,
   duplicateEmail
-} from "./utils/errorMessages";
+} from "./errorMessages";
 
 const schema = yup.object().shape({
   email: yup
@@ -24,9 +24,6 @@ const schema = yup.object().shape({
 });
 
 export const resolvers: ResolverMap = {
-  Query: {
-    hello: (_, { name }: GQL.IHelloOnQueryArguments) => `Bye ${name || "World"}`
-  },
 
   Mutation: {
     register: async (_, args: GQL.IRegisterOnMutationArguments) => {

@@ -5,7 +5,8 @@ import { Customer } from "../../chinookEntities/Customer";
 
 const context = ChinookContext.Instance;
 
-describe("ChinookContext", async() => {
+describe("ChinookContext", () => {
+
     it("can get album list", async () => {
         const repo = await context.Albums();
         const list: Album[] = await repo.find({});

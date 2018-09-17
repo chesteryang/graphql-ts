@@ -24,7 +24,9 @@ afterAll(() => {
         connection.close()
     }
 })
-describe("database connection", async () => {
+
+describe("database connection", () => {
+    
     it("can get album list", async () => {
         const conn = await getConnection();
         const repo: Repository<Album> = conn.getRepository(Album);
