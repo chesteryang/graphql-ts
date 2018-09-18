@@ -1,6 +1,6 @@
 type Query {
-  getEmployee(id: Int!): Employee
-  getCustomer(id: Int!): Customer
+  employee(id: Int!): Employee
+  customer(id: Int!): Customer
 }
 
 type Employee{
@@ -16,6 +16,10 @@ type Customer{
     firstName: String!
     lastName: String!
     email: String! 
-    phone: String!
+    address: String
+    city: String
+    country: String
+    postalCode: String
+    phone: String
     company: String 
 }

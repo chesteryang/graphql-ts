@@ -22,17 +22,17 @@ export declare namespace GQL {
 
   interface IQuery {
     __typename: 'Query';
-    getEmployee: IEmployee | null;
-    getCustomer: ICustomer | null;
+    employee: IEmployee | null;
+    customer: ICustomer | null;
     hello: string;
     bye: string | null;
   }
 
-  interface IGetEmployeeOnQueryArguments {
+  interface IEmployeeOnQueryArguments {
     id: number;
   }
 
-  interface IGetCustomerOnQueryArguments {
+  interface ICustomerOnQueryArguments {
     id: number;
   }
 
@@ -55,7 +55,11 @@ export declare namespace GQL {
     firstName: string;
     lastName: string;
     email: string;
-    phone: string;
+    address: string | null;
+    city: string | null;
+    country: string | null;
+    postalCode: string | null;
+    phone: string | null;
     company: string | null;
   }
 

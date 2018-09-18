@@ -2,7 +2,7 @@ import request from "graphql-request";
 
 const query1 = (id: number) => `
 query{
-    getEmployee(id: ${id}){
+    employee(id: ${id}){
         id
         firstName
         lastName
@@ -13,7 +13,7 @@ query{
 
 const query2 = (id: number) => `
 query{
-    getCustomer(id: ${id}){
+    customer(id: ${id}){
         id
         firstName
         lastName

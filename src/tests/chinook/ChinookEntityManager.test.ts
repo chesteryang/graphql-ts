@@ -17,8 +17,8 @@ describe("using entity manager", () => {
     })
 
     it("can query general manager", async () => {
-        const list: Employee[] = await manager.find(Employee, {where: {ReportsTo: null}});
+        const list: Employee[] = await manager.find(Employee, {where: {reportsTo: null}});
         expectList(list);
-        expect(list[0].Title).toEqual("General Manager");
+        expect(list[0].title).toEqual("General Manager");
     })
 })
