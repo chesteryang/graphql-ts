@@ -1,12 +1,12 @@
-import { ChinookContext } from "../../chinookEntities/ChinookContext";
 import { Employee } from "../../chinookEntities/Employee";
 import { expectList } from "../testHelper";
 import { EntityManager } from "typeorm";
+import { getChinookConnection } from "../../utils/createTypeormConn";
 
 let manager: EntityManager;
 
 beforeAll(async () => {
-    const conn = await ChinookContext.Instance.getChinookConnection();
+    const conn = await getChinookConnection();
     manager = conn.manager;
 })
 

@@ -22,12 +22,25 @@ export declare namespace GQL {
 
   interface IQuery {
     __typename: 'Query';
+    getEmployee: IEmployee | null;
     hello: string;
     bye: string | null;
   }
 
+  interface IGetEmployeeOnQueryArguments {
+    id: number;
+  }
+
   interface IHelloOnQueryArguments {
     name?: string | null;
+  }
+
+  interface IEmployee {
+    __typename: 'Employee';
+    id: number;
+    firstName: string;
+    lastName: string;
+    title: string;
   }
 
   interface IMutation {

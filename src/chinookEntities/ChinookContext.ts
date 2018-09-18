@@ -1,4 +1,4 @@
-import { ObjectType, Connection, getConnection, createConnection } from "typeorm";
+import { ObjectType } from "typeorm";
 import { Album } from "./Album";
 import { Artist } from "./Artist";
 import { Customer } from "./Customer";
@@ -10,23 +10,13 @@ import { MediaType } from "./MediaType";
 import { Playlist } from "./Playlist";
 import { SaleRecord } from "./SaleRecord";
 import { Track } from "./Track";
+import { getChinookConnection } from "../utils/createTypeormConn";
 
 export class ChinookContext {
     static Instance: ChinookContext = new ChinookContext();
 
-    async getChinookConnection(){
-        let conn: Connection;
-        try{
-            conn = await getConnection("chinook")
-        }
-        catch(error){
-            conn = await createConnection("chinook");
-        }
-        return conn
-    }
-
     async Repository<T>(t: ObjectType<T>) {
-        const conn = await this.getChinookConnection();
+        const conn = await getChinookConnection();
         return conn.getRepository<T>(t)
     }
 

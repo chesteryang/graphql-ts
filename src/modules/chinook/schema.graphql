@@ -1,0 +1,10 @@
+type Query {
+  getEmployee(id: Int!): Employee
+}
+
+type Employee{
+    id: Int!
+    firstName: String!
+    lastName: String!
+    title: String!
+}
