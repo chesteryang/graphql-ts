@@ -23,11 +23,16 @@ export declare namespace GQL {
   interface IQuery {
     __typename: 'Query';
     getEmployee: IEmployee | null;
+    getCustomer: ICustomer | null;
     hello: string;
     bye: string | null;
   }
 
   interface IGetEmployeeOnQueryArguments {
+    id: number;
+  }
+
+  interface IGetCustomerOnQueryArguments {
     id: number;
   }
 
@@ -42,6 +47,16 @@ export declare namespace GQL {
     lastName: string;
     title: string;
     email: string;
+  }
+
+  interface ICustomer {
+    __typename: 'Customer';
+    id: number;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    company: string | null;
   }
 
   interface IMutation {

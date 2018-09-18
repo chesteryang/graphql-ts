@@ -17,6 +17,21 @@ export const resolvers: ResolverMap = {
             }
         }
         return null;
+    },
+    getCustomer: async(_, {id}: GQL.IGetCustomerOnQueryArguments) => {
+        const repo = await ChinookContext.Instance.Customers();
+        const customer = await repo.findOne({CustomerId: id});
+        if(customer){
+            return {
+                id: customer.CustomerId,
+                firstName: customer.FirstName,
+                lastName: customer.LastName,
+                email: customer.Email,
+                company: customer.Company
+            }
+        }
+        return null;        
     }
+
   }
 }
