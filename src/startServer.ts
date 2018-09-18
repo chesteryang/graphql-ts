@@ -16,9 +16,9 @@ export const startServer = async () => {
   await createTypeormConn();
 
   const app = await server.start({
-    port: process.env.NODE_ENV === "test" ? 0 : 4000
+    port: process.env.NODE_ENV === "test" ? 0 : 8030
   });
-  console.log("Server is running on localhost:4000");
+  console.log("Server is running on localhost:8030");
 
   return app;
 };
