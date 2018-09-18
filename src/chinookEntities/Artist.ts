@@ -6,12 +6,12 @@ export class Artist {
     @PrimaryGeneratedColumn({
         name: "ArtistId"
     })
-    ArtistId: number;
+    artistId: number;
 
     @Column("nvarchar", {
         nullable: true,
         length: 120,
         name: "Name"
     })
-    Name: string | null;
+    name: string | null;
 }

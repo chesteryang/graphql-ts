@@ -6,18 +6,18 @@ export class Album {
     @PrimaryGeneratedColumn({ 
         name: "AlbumId" 
     })
-    AlbumId: number;
+    albumId: number;
 
     @Column("nvarchar", {
         nullable: false,
         length: 160,
         name: "Title"
     })
-    Title: string;
+    title: string;
 
     @Column("integer", {
         nullable: false,
         name: "ArtistId"
     })
-    ArtistId: number;
+    artistId: number;
 }

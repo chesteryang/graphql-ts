@@ -6,51 +6,51 @@ export class Invoice {
     @PrimaryGeneratedColumn({
         name: "InvoiceId"
     })
-    InvoiceId: number;
+    invoiceId: number;
 
     @Column("integer", { name: 'CustomerId' })
-    CustomerId: number | null;
+    customerId: number | null;
 
     @Column("datetime", {
         nullable: false,
         name: "InvoiceDate"
     })
-    InvoiceDate: Date;
+    invoiceDate: Date;
 
     @Column("nvarchar", {
         nullable: true,
         length: 70,
         name: "BillingAddress"
     })
-    BillingAddress: string | null;
+    billingAddress: string | null;
 
     @Column("nvarchar", {
         nullable: true,
         length: 40,
         name: "BillingCity"
     })
-    BillingCity: string | null;
+    billingCity: string | null;
 
     @Column("nvarchar", {
         nullable: true,
         length: 40,
         name: "BillingState"
     })
-    BillingState: string | null;
+    billingState: string | null;
 
     @Column("nvarchar", {
         nullable: true,
         length: 40,
         name: "BillingCountry"
     })
-    BillingCountry: string | null;
+    billingCountry: string | null;
 
     @Column("nvarchar", {
         nullable: true,
         length: 10,
         name: "BillingPostalCode"
     })
-    BillingPostalCode: string | null;
+    billingPostalCode: string | null;
 
     @Column("numeric", {
         nullable: false,
@@ -58,5 +58,5 @@ export class Invoice {
         scale: 2,
         name: "Total"
     })
-    Total: number;
+    total: number;
 }

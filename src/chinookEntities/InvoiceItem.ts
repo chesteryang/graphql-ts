@@ -8,13 +8,13 @@ export class InvoiceItem {
 
         name: "InvoiceLineId"
     })
-    InvoiceLineId: number;
+    invoiceLineId: number;
 
     @Column("integer", { name: 'InvoiceId' })
-    InvoiceId: number | null;
+    invoiceId: number | null;
 
     @Column("integer", { name: 'TrackId' })
-    TrackId: number | null;
+    trackId: number | null;
 
     @Column("numeric", {
         nullable: false,
@@ -22,11 +22,11 @@ export class InvoiceItem {
         scale: 2,
         name: "UnitPrice"
     })
-    UnitPrice: number;
+    unitPrice: number;
 
     @Column("integer", {
         nullable: false,
         name: "Quantity"
     })
-    Quantity: number;
+    quantity: number;
 }

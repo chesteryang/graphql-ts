@@ -5,12 +5,12 @@ export class MediaType {
     @PrimaryGeneratedColumn({
         name: "MediaTypeId"
     })
-    MediaTypeId: number;
+    mediaTypeId: number;
 
     @Column("nvarchar", {
         nullable: true,
         length: 120,
         name: "Name"
     })
-    Name: string | null;
+    name: string | null;
 }

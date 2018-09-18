@@ -7,12 +7,12 @@ export class Genre {
 
         name: "GenreId"
     })
-    GenreId: number;
+    genreId: number;
 
     @Column("nvarchar", {
         nullable: true,
         length: 120,
         name: "Name"
     })
-    Name: string | null;
+    name: string | null;
 }

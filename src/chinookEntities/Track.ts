@@ -5,42 +5,42 @@ export class Track {
     @PrimaryGeneratedColumn({
         name: "TrackId"
     })
-    TrackId: number;
+    trackId: number;
 
     @Column("nvarchar", {
         nullable: false,
         length: 200,
         name: "Name"
     })
-    Name: string;
+    name: string;
 
     @Column("integer", { name: 'AlbumId' })
-    AlbumId: number | null;
+    albumId: number | null;
 
     @Column("integer", { name: 'MediaTypeId' })
-    MediaTypeId: number | null;
+    mediaTypeId: number | null;
 
     @Column("integer", { name: 'GenreId' })
-    GenreId: number | null;
+    genreId: number | null;
 
     @Column("nvarchar", {
         nullable: true,
         length: 220,
         name: "Composer"
     })
-    Composer: string | null;
+    composer: string | null;
 
     @Column("integer", {
         nullable: false,
         name: "Milliseconds"
     })
-    Milliseconds: number;
+    milliseconds: number;
 
     @Column("integer", {
         nullable: true,
         name: "Bytes"
     })
-    Bytes: number | null;
+    bytes: number | null;
 
     @Column("numeric", {
         nullable: false,
@@ -48,5 +48,5 @@ export class Track {
         scale: 2,
         name: "UnitPrice"
     })
-    UnitPrice: number;
+    unitPrice: number;
 }

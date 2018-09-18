@@ -39,13 +39,13 @@ test("add Artist works", async () => {
     const name = "Paul Mauriat";
     const ctn = await getConnection();
     const repo = ctn.getRepository(Artist);
-    const artist = repo.create({Name: name})
-    const artist1 = repo.create({Name: name})
+    const artist = repo.create({name})
+    const artist1 = repo.create({name})
     await repo.save(artist);
     await repo.save(artist1);
     const saved = await repo.find({where: {Name: name}});
     expect(saved).toHaveLength(2);
-    expect(saved[0].Name).toEqual(name);
+    expect(saved[0].name).toEqual(name);
 })
 
 function sum(a:number, b:number) {

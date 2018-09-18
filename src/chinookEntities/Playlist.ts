@@ -5,12 +5,12 @@ export class Playlist {
     @PrimaryGeneratedColumn({  
         name:"PlaylistId"
         })
-    PlaylistId:number;
+    playlistId:number;
 
     @Column("nvarchar",{ 
         nullable:true,
         length:120,
         name:"Name"
         })
-    Name:string | null;
+    name:string | null;
 }
