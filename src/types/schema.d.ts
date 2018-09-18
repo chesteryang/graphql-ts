@@ -24,6 +24,7 @@ export declare namespace GQL {
     __typename: 'Query';
     employee: IEmployee | null;
     customer: ICustomer | null;
+    album: IAlbum | null;
     hello: string;
     bye: string | null;
   }
@@ -33,6 +34,10 @@ export declare namespace GQL {
   }
 
   interface ICustomerOnQueryArguments {
+    id: number;
+  }
+
+  interface IAlbumOnQueryArguments {
     id: number;
   }
 
@@ -61,6 +66,27 @@ export declare namespace GQL {
     postalCode: string | null;
     phone: string | null;
     company: string | null;
+  }
+
+  interface IAlbum {
+    __typename: 'Album';
+    id: number;
+    title: string;
+    artist: IArtist | null;
+    tracks: Array<ITrack> | null;
+  }
+
+  interface IArtist {
+    __typename: 'Artist';
+    id: number;
+    name: string;
+  }
+
+  interface ITrack {
+    __typename: 'Track';
+    id: number;
+    name: string;
+    unitPrice: number;
   }
 
   interface IMutation {

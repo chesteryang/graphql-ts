@@ -21,6 +21,21 @@ query{
     }
 }
 `
+
+const query3 = (id: number) => `
+query{
+    album(id: ${id}){
+        title
+        artist{
+            name
+        }
+        tracks{
+            name
+            unitPrice
+        }
+    }
+}
+`
 const host = process.env.TEST_HOST as string
 
 test("it can get an employee", async () => {
@@ -30,5 +45,10 @@ test("it can get an employee", async () => {
 
 test("it can get a customer", async () => {
     const response = await request(host, query2(1));
+    expect(response).not.toBeNull()
+})
+
+test("it can get an album", async () => {
+    const response = await request(host, query3(1));
     expect(response).not.toBeNull()
 })
