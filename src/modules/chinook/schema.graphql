@@ -7,4 +7,5 @@ type Employee{
     firstName: String!
     lastName: String!
     title: String!
+    email: String!
 }

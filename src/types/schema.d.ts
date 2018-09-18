@@ -41,6 +41,7 @@ export declare namespace GQL {
     firstName: string;
     lastName: string;
     title: string;
+    email: string;
   }
 
   interface IMutation {

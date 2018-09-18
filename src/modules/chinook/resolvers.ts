@@ -12,15 +12,11 @@ export const resolvers: ResolverMap = {
                 id: employee.EmployeeId,
                 firstName: employee.FirstName,
                 lastName: employee.LastName,
-                title: employee.Title
+                title: employee.Title,
+                email: employee.Email
             }
         }
-        return {
-            id,
-            firstName: "Chester",
-            lastName: "Yang",
-            title: "Developer"
-        }
+        return null;
     }
   }
-};
+}
