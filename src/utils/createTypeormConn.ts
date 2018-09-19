@@ -5,13 +5,14 @@ export const createTypeormConn = async () => {
   return createConnection({ ...connectionOptions, name: "default" });
 };
 
+const connectionString = "chinook-" + (process.env.NODE_ENV || "production");
 export const getChinookConnection = async () => {
   let conn: Connection;
   try{
-      conn = await getConnection("chinook")
+      conn = await getConnection(connectionString)
   }
   catch(error){
-      conn = await createConnection("chinook");
+      conn = await createConnection(connectionString);
   }
   return conn
 }
