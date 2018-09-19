@@ -17,7 +17,6 @@
       "nodemon": "^1.18.4",
       "prettier": "^1.14.2",
       "ts-jest": "^23.1.4",
-      "ts-node": "7.0.1",
       "tslint-config-prettier": "^1.15.0",
       "typescript": "3.0.3"
    },
@@ -31,6 +30,7 @@
       "graphql-yoga": "^1.16.2",
       "reflect-metadata": "^0.1.10",
       "sqlite3": "^4.0.2",
+      "ts-node": "^7.0.1",
       "typeorm": "0.2.7",
       "yup": "^0.26.5"
    },
@@ -56,6 +56,6 @@
       ]
    },
    "eslintConfig": {
-    "plugins": []
-  }
+      "plugins": []
+   }
 }
