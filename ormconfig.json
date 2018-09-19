@@ -21,6 +21,27 @@
         }
     },
     {
+        "name": "production",
+        "type": "sqlite",
+        "database": "db/prd.db",
+        "synchronize": true,
+        "logging": false,
+        "entities": [
+            "src/entity/**/*.ts"
+        ],
+        "migrations": [
+            "src/migration/**/*.ts"
+        ],
+        "subscribers": [
+            "src/subscriber/**/*.ts"
+        ],
+        "cli": {
+            "entitiesDir": "src/entity",
+            "migrationsDir": "src/migration",
+            "subscribersDir": "src/subscriber"
+        }
+    },
+    {
         "name": "chinook",
         "type": "sqlite",
         "database": "db/chinook.db",

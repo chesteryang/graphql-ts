@@ -35,7 +35,7 @@
       "yup": "^0.26.5"
    },
    "scripts": {
-      "start": "ts-node src/index.ts",
+      "start": "SET NODE_ENV=production&ts-node src/index.ts",
       "start-dev": "SET NODE_ENV=development&nodemon --exec ts-node src/index.ts",
       "gen-schema-types": "ts-node src/scripts/createTypes.ts",
       "test": "SET NODE_ENV=test&jest --detectOpenHandles --forceExit"
