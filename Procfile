@@ -1,1 +1,1 @@
-web: pwd&ls -al&node dist/index.js
+web: node dist/index.js
