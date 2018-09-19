@@ -15,6 +15,7 @@ export const startServer = async () => {
    
   await createTypeormConn();
 
+  // process.env.PORT
   const app = await server.start({
     port: process.env.NODE_ENV === "test" ? 0 : 4000
   });
