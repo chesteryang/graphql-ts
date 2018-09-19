@@ -3,6 +3,6 @@ import { GQL } from "../../types/schema";
 
 export const resolvers: ResolverMap = {
   Query: {
-    hello: (_, { name }: GQL.IHelloOnQueryArguments) => `Bye ${name || "World"}`
+    hello: (_, { name }: GQL.IHelloOnQueryArguments) => `Hello ${name || "from Chester Yang"}`
   }
 };
