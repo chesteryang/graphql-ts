@@ -2,6 +2,11 @@ import { ResolverMap } from "../../types/graphql-utils";
 import { GQL } from "../../types/schema";
 import { ChinookContext } from "../../chinookEntities/ChinookContext";
 
+const getTracks = async (albumId: number) => {
+  const repo = await ChinookContext.Instance.Tracks();
+  return repo.find({albumId})
+}
+
 export const resolvers: ResolverMap = {
   Query: {
     employee: async (_, { id }: GQL.IEmployeeOnQueryArguments) => {
@@ -23,9 +28,22 @@ export const resolvers: ResolverMap = {
       if(album){
         const artistRepo = await dbContext.Artists();
         const artist = await artistRepo.findOne({artistId: album.albumId});
-        const tracksRepo = await dbContext.Tracks();
-        const tracks = tracksRepo.find({albumId: album.albumId})
+        const tracks = await getTracks(album.albumId);
         return {... album, artist, tracks}
+      }
+      return null;
+    },
+    artist: async(_, {id}: GQL.IArtistOnQueryArguments) => {
+      const dbContext = ChinookContext.Instance;
+      const artistRepo = await dbContext.Artists();
+      const artist = await artistRepo.findOne({artistId: id});
+      if(artist){
+        const albumRepo = await dbContext.Albums();
+        const albums = await albumRepo.find({artistId: id});
+        for(const album of albums){         
+          album.tracks = await getTracks(album.albumId);
+        }
+        return {... artist, albums};
       }
       return null;
     }

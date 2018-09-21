@@ -11,6 +11,7 @@ import { MediaType } from "../../chinookEntities/MediaType";
 import { Playlist } from "../../chinookEntities/Playlist";
 import { SaleRecord } from "../../chinookEntities/SaleRecord";
 import { Track } from "../../chinookEntities/Track";
+import { getChinookConnection } from "../../utils/createTypeormConn";
 // entity test file cannot be in entity folder due to ormconfig.json settings
 const context = ChinookContext.Instance;
 
@@ -20,6 +21,26 @@ describe("ChinookContext", () => {
         const repo = await context.Albums();
         const list: Album[] = await repo.find({});
         expectList(list);
+    })
+
+    it("can get album list with tracks", async () => {
+        const conn = await getChinookConnection();
+        let builder = await conn.createQueryBuilder();
+        const albums = await builder
+            .from(Album, "albums")
+            .where("albums.ArtistId=:id", {id: 1})
+            .select("albums")
+            .getMany();
+        for(const album of albums){
+            builder = await conn.createQueryBuilder();
+            const tracks = await builder
+            .from(Track, "tracks")
+            .where("tracks.AlbumId=:id", {id: album.albumId})
+            .select("tracks")
+            .getMany();
+            album.tracks = tracks;
+        }
+        expectList(albums);
     })
 
     it("can get artist list", async () => {
