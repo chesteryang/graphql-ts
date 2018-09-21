@@ -6,7 +6,6 @@
       "sourceMap": true,
       "outDir": "./dist",
       "moduleResolution": "node",
-  
       "removeComments": true,
       "noImplicitAny": true,
       "strictNullChecks": true,
@@ -20,6 +19,6 @@
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true
     },
-    "exclude": ["node_modules"],
+    "exclude": ["node_modules", "**/*.test.ts"],
     "include": ["./src/**/*.tsx", "./src/**/*.ts"]
 }
