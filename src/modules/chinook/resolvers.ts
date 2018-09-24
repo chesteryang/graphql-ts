@@ -27,7 +27,8 @@ export const resolvers: ResolverMap = {
       const album = await albumRepo.findOne({albumId: id});
       if(album){
         const artistRepo = await dbContext.Artists();
-        const artist = await artistRepo.findOne({artistId: album.albumId});
+        const artistinDb = await artistRepo.findOne({artistId: album.artistId});
+        const artist = artistinDb? {... artistinDb, id: artistinDb.artistId}: null;
         const tracks = await getTracks(album.albumId);
         return {... album, artist, tracks}
       }

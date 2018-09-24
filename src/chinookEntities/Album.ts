@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 import { Track } from "./Track";
+import { Artist } from "./Artist";
 @Entity("albums")
 export class Album {
 
@@ -21,5 +22,6 @@ export class Album {
     })
     artistId: number;
 
+    artist: Artist | undefined;
     tracks: Track[];
 }
